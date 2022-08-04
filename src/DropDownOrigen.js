@@ -4,7 +4,8 @@ function DropDownOrigen({ unidades: { unidadesDropdown, setUnidadOrigen }}) {
 
   const[focusedUnit, setFocusedUnit] = useState(null);
 
-  function getUnitID(i) {
+  function getUnitID(e,i) {
+    e.preventDefault();
     setFocusedUnit(i)
     console.log(focusedUnit);
   }
@@ -17,8 +18,8 @@ function DropDownOrigen({ unidades: { unidadesDropdown, setUnidadOrigen }}) {
           return (
             <li className="w-full py-1">
               <a
-                onClick={()=>{getUnitID(i);setUnidadOrigen(item);}}
-                href="/#"
+                onClick={(e)=>{getUnitID(e,i);setUnidadOrigen(item);}}
+                href="/"
                 key={i}
                 value={item}
                 className={`inline-block w-full ${classes}`}

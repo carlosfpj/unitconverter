@@ -4,7 +4,8 @@ function DropDownDestino({ unidades: { unidadesDropdown, setUnidadDestino} }) {
 
   const [focusedUnit, setFocusedUnit] = useState(null);
 
-  function getUnitID(i) {
+  function getUnitID(e,i) {
+    e.preventDefault();
     setFocusedUnit(i)
     console.log(focusedUnit);
   }
@@ -16,8 +17,8 @@ function DropDownDestino({ unidades: { unidadesDropdown, setUnidadDestino} }) {
         return (
           <li className="w-full py-1">
             <a
-              onClick={() => { getUnitID(i); setUnidadDestino(item); }}
-              href="/#"
+              onClick={(e) => { getUnitID(e, i); setUnidadDestino(item); }}
+              href="/"
               key={i}
               value={item}
               className={`inline-block w-full ${classes}`}

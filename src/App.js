@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="grid grid-cols-12 h-screen">
+      <div className="grid grid-cols-12 h-screen font-Commissioner">
         <Sidebar opcion={{opcion, setOpcion}}>
         </Sidebar>
           <Main opcion={opcion}>

@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Commissioner': ['Commissioner', 'sans-serif'],
+        'DancingScript': ['"Dancing Script"', 'sans-serif']}
+    },
   },
   plugins: [],
 }

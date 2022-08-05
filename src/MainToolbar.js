@@ -1,7 +1,9 @@
 function MainToolbar (props) {
   return (
-    <div className="h-6 bg-blue-500">
-      <h3>Página de {props.titulo}</h3>
+    <div className="bg-gradient-to-r from-blue-500 to-white">
+      <div className="h-16">
+        <h3>Página de {props.titulo}</h3>
+      </div>
     </div>
   )
 }

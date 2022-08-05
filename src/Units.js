@@ -57,7 +57,6 @@ function Units ({opcion, number, result}) {
   }
 
   function getLongEcuations(origen, destino) {
-    //console.log("origen es: " + origen + ", el destino es: " + destino);
     if(origen === destino) {
       return setResult(number);
     }

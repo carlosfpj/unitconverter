@@ -3,6 +3,7 @@ import React from "react";
 function Sidebar (props) {
 
   const {opcion, setOpcion} = props.opcion;
+  const optionContext = React.createContext(opcion)
 
   function handleClick(e) {
     e.preventDefault();

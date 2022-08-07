@@ -9,8 +9,6 @@ function Units ({opcion, number, result}) {
   const[unidadOrigen, setUnidadOrigen] = useState();
   const[unidadDestino, setUnidadDestino] = useState();
 
-  const[focusDestino, setFocusDestino] = useState(false);
-
   function fetchUnits() {
     switch (opcion) {
 
@@ -20,11 +18,11 @@ function Units ({opcion, number, result}) {
         break;
 
       case 'area':
-        setDropdownUnidades(['kilómetro Cuadrado (Km2)', 'Metro Cuadrado (m2)', 'Centímetro Cuadrado (cm2)', 'milímetro cuadrado (mm2)']);
+        setDropdownUnidades(['Kilómetro cuadrado (Km2)', 'metro cuadrado (m2)', 'centímetro cuadrado (cm2)', 'milímetro cuadrado (mm2)']);
         break;
 
       case 'volumen':
-        setDropdownUnidades(['Metro cúbico (m3)', 'Pie cúbico (ft3)', 'centímetro cúbico (cm3)']);
+        setDropdownUnidades(['metro cúbico (m3)', 'pie cúbico (ft3)', 'centímetro cúbico (cm3)']);
         break;
 
       case 'masa':
@@ -49,6 +47,10 @@ function Units ({opcion, number, result}) {
 
       case 'area':
         getAreaEcuations(unidadOrigen, unidadDestino);
+        break;
+
+      case 'volumen':
+        getVolumeEcuations(unidadOrigen, unidadDestino);
         break;
 
       default:
@@ -93,14 +95,21 @@ function Units ({opcion, number, result}) {
       return setResult(number / 100);
     }
 
-    else if((origen === "centímetro (cm)") && (destino === "milímetro (mm)")) {
+    else if ((origen === "centímetro (cm)") && (destino === "milímetro (mm)")) {
       return setResult(number * 10);
     }
 
-    else if((origen === "milímetro (mm)") && (destino === "Kilómetro (Km)")) {
+    else if ((origen === "milímetro (mm)") && (destino === "Kilómetro (Km)")) {
       return setResult(number / 1000000);
     }
 
+    else if ((origen === "milímetro (mm)") && (destino === "metro (m)")) {
+      return setResult(number / 1000);
+    }
+
+    else if ((origen === "milímetro (mm)") && (destino === "centímetro (cm)")) {
+      return setResult(number / 100);
+    }
   }
 
   function getAreaEcuations(origen, destino) {
@@ -108,8 +117,58 @@ function Units ({opcion, number, result}) {
       return setResult(number);
     }
 
-    else if ((origen === "kilómetro Cuadrado (Km2)") && (destino === "Metro Cuadrado (m2)")) {
+    else if ((origen === "Kilómetro cuadrado (Km2)") && (destino === "metro cuadrado (m2)")) {
       return setResult(number * 1000000);
+    }
+
+    else if ((origen === "Kilómetro cuadrado (Km2)") && (destino === "centímetro cuadrado (cm2)")) {
+      return setResult(number * 10000000000);
+    }
+
+    else if ((origen === "Kilómetro cuadrado (Km2)") && (destino === "milímetro cuadrado (mm2)")) {
+      return setResult(number * 1000000000000);
+    }
+
+    else if ((origen === "metro cuadrado (m2)") && (destino === "Kilómetro cuadrado (Km2)")) {
+      return setResult(number / 1000000);
+    }
+
+    else if ((origen === "metro cuadrado (m2)") && (destino === "centímetro cuadrado (cm2)")) {
+      return setResult(number * 10000);
+    }
+
+    else if ((origen === "metro cuadrado (m2)") && (destino === "milímetro cuadrado (mm2)")) {
+      return setResult (number * 1000000);
+    }
+  }
+
+  function getVolumeEcuations(origen, destino) {
+    if(origen === destino) {
+      return setResult(number);
+    }
+
+    else if ((origen === 'metro cúbico(m3)') && (destino === 'pie cúbico (ft3)')) {
+      return setResult(number * 35.3147);
+    }
+
+    else if ((origen === 'metro cúbico(m3)') && (destino === 'centímetro cúbico (cm3)')) {
+      return setResult(number * 1000000);
+    }
+
+    else if ((origen === 'pie cúbico (ft3)') && (destino === 'metro cúbico(m3)')) {
+      return setResult(number / 35.3147);
+    }
+
+    else if ((origen === 'pie cúbico (ft3)') && (destino === 'centímetro cúbico (cm3)')) {
+      return setResult(number * 28320);
+    }
+
+    else if ((origen === 'centímetro cúbico (cm3)') && (destino === 'metro cúbico(m3)')) {
+      return setResult(number / 1000000);
+    }
+
+    else if ((origen === 'centímetro cúbico (cm3)') && (destino === 'pie cúbico (ft3)')) {
+      return setResult(number / 28320);
     }
   }
 

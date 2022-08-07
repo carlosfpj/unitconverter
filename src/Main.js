@@ -1,12 +1,12 @@
 import MainContent from './MainContent.js';
 import MainToolbar from './MainToolbar.js';
 
-function Main(props) {
+function Main() {
   return (
     <div className="col-span-10">
-      <MainToolbar titulo={props.opcion}>
+      <MainToolbar>
       </MainToolbar>
-      <MainContent titulo={props.opcion}>
+      <MainContent>
       </MainContent>
     </div>
   )

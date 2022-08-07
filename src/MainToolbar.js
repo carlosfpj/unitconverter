@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import {sidebarOption} from "./OptionContext";
+
 function MainToolbar ({titulo}) {
 
-  const title = titulo;
+  const title = useContext(sidebarOption);
 
   function toUpperCase(title) {
     return title.toUpperCase();

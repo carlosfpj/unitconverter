@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DropDownOrigen from './DropDownOrigen.js';
 import DropDownDestino from './DropDownDestino.js';
+import {sidebarOption} from './OptionContext.js'
 
-function Units ({opcion, number, result}) {
+function Units ({number, result}) {
 
   const setResult = result.setResult;
   const[unidadesDropdown, setDropdownUnidades] = useState(['Kilómetro (Km)', 'metro (m)', 'centímetro (cm)', 'milímetro (mm)']);
   const[unidadOrigen, setUnidadOrigen] = useState();
   const[unidadDestino, setUnidadDestino] = useState();
+  const opcion = useContext(sidebarOption);
 
   function fetchUnits() {
     switch (opcion) {

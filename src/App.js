@@ -15,7 +15,7 @@ function App() {
         <Sidebar opcion={{opcion, setOpcion}}>
         </Sidebar>
         <OptionProvider value={opcion}>
-          <Main opcion={opcion}>
+          <Main>
           </Main>
         </OptionProvider>
         </div>

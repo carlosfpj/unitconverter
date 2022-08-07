@@ -352,12 +352,61 @@ function Units ({opcion, number, result}) {
   }
 
   function getTempEcuations(origen, destino) {
+
+    if ((origen === "El corazón de tu ex (X_X)") && (destino === "El corazón de tu ex (X_X)")) {
+      return setResult("DÉJALA IR!!!");
+    }
+
     if (origen === destino) {
       return setResult(number);
     }
 
-    else if ((origen === "Celcius (°C)") && (destino === "kilogramo (Kg)")) {
-      return setResult(number * 1000);
+    else if ((origen === "Celcius (°C)") && (destino === "Fahrenheit (°F)")) {
+      return setResult((parseFloat(number) * (9/5)) + 32);
+    }
+
+    else if ((origen === "Celcius (°C)") && (destino === "Kelvin (K)")) {
+      return setResult(parseFloat(number) + (273.15));
+    }
+
+    else if ((origen === "Celcius (°C)") && (destino === "El corazón de tu ex (X_X)")) {
+      return setResult("Frozen");
+    }
+
+    else if ((origen === "Fahrenheit (°F)") && (destino === "Celcius (°C)")) {
+      return setResult((number - 32) * 5/9);
+    }
+
+    else if ((origen === "Fahrenheit (°F)") && (destino === "Kelvin (K)")) {
+      return setResult((number - 32) * (5 / 9) + (273.15));
+    }
+
+    else if ((origen === "Fahrenheit (°F)") && (destino === "El corazón de tu ex (X_X)")) {
+      return setResult("Frozen");
+    }
+
+    else if ((origen === "Kelvin (K)") && (destino === "Celcius (°C)")) {
+      return setResult(number - 273.15);
+    }
+
+    else if ((origen === "Kelvin (K)") && (destino === "Fahrenheit (°F)")) {
+      return setResult((number - 273.15) * (9/5) + 32);
+    }
+
+    else if ((origen === "Kelvin (K)") && (destino === "El corazón de tu ex (X_X)")) {
+      return setResult("Frozen");
+    }
+
+    else if ((origen === "El corazón de tu ex (X_X)") && (destino === "Celcius (°C)")) {
+      return setResult("NO");
+    }
+
+    else if ((origen === "El corazón de tu ex (X_X)") && (destino === "Fahrenheit (°F)")) {
+      return setResult("INSISTAS");
+    }
+
+    else if ((origen === "El corazón de tu ex (X_X)") && (destino === "Kelvin (K)")) {
+      return setResult("MAS");
     }
   }
 

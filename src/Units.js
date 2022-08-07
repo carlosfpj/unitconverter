@@ -41,7 +41,6 @@ function Units ({opcion, number, result}) {
   function selectEcuations (o) {
     switch (o) {
       case 'longitud':
-        //console.log("se cargarán las ecuaciones de " + o)
         getLongEcuations(unidadOrigen, unidadDestino);
         break;
 
@@ -55,6 +54,10 @@ function Units ({opcion, number, result}) {
 
       case 'masa':
         getMassEcuations(unidadOrigen, unidadDestino);
+        break;
+
+      case 'temperatura':
+        getTempEcuations(unidadOrigen, unidadDestino);
         break;
 
       default:
@@ -251,6 +254,16 @@ function Units ({opcion, number, result}) {
 
     else if ((origen === "miligramo (mg)") && (destino === "gramo (g)")) {
       return setResult(number / 1000);
+    }
+  }
+
+  function getTempEcuations(origen, destino) {
+    if (origen === destino) {
+      return setResult(number);
+    }
+
+    else if ((origen === "Celcius (°C)") && (destino === "kilogramo (Kg)")) {
+      return setResult(number * 1000);
     }
   }
 

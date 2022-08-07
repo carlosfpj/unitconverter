@@ -53,6 +53,10 @@ function Units ({opcion, number, result}) {
         getVolumeEcuations(unidadOrigen, unidadDestino);
         break;
 
+      case 'masa':
+        getMassEcuations(unidadOrigen, unidadDestino);
+        break;
+
       default:
         break;
     }
@@ -140,6 +144,30 @@ function Units ({opcion, number, result}) {
     else if ((origen === "metro cuadrado (m2)") && (destino === "milímetro cuadrado (mm2)")) {
       return setResult (number * 1000000);
     }
+
+    else if ((origen === "centímetro cuadrado (cm2)") && (destino === "Kilómetro cuadrado (Km2)")) {
+      return setResult (number / 10000000000);
+    }
+
+    else if ((origen === "centímetro cuadrado (cm2)") && (destino === "metro cuadrado (m2)")) {
+      return setResult (number / 10000);
+    }
+
+    else if ((origen === "centímetro cuadrado (cm2)") && (destino === "milímetro cuadrado (mm2)")) {
+      return setResult(number / 100);
+    }
+
+    else if ((origen === "milímetro cuadrado (mm2)") && (destino === "Kilómetro cuadrado (Km2)")) {
+      return setResult(number / 1000000000000);
+    }
+
+    else if ((origen === "milímetro cuadrado (mm2)") && (destino === "metro cuadrado (m2)")) {
+      return setResult(number / 1000000);
+    }
+
+    else if ((origen === "milímetro cuadrado (mm2)") && (destino === "centímetro cuadrado (cm2)")) {
+      return setResult(number / 100);
+    }
   }
 
   function getVolumeEcuations(origen, destino) {
@@ -147,11 +175,11 @@ function Units ({opcion, number, result}) {
       return setResult(number);
     }
 
-    else if ((origen === 'metro cúbico(m3)') && (destino === 'pie cúbico (ft3)')) {
+    else if ((origen === 'metro cúbico (m3)') && (destino === 'pie cúbico (ft3)')) {
       return setResult(number * 35.3147);
     }
 
-    else if ((origen === 'metro cúbico(m3)') && (destino === 'centímetro cúbico (cm3)')) {
+    else if ((origen === 'metro cúbico (m3)') && (destino === 'centímetro cúbico (cm3)')) {
       return setResult(number * 1000000);
     }
 
@@ -163,12 +191,66 @@ function Units ({opcion, number, result}) {
       return setResult(number * 28320);
     }
 
-    else if ((origen === 'centímetro cúbico (cm3)') && (destino === 'metro cúbico(m3)')) {
+    else if ((origen === 'centímetro cúbico (cm3)') && (destino === 'metro cúbico (m3)')) {
       return setResult(number / 1000000);
     }
 
     else if ((origen === 'centímetro cúbico (cm3)') && (destino === 'pie cúbico (ft3)')) {
       return setResult(number / 28320);
+    }
+  }
+
+  function getMassEcuations(origen, destino) {
+    if (origen === destino) {
+      return setResult(number);
+    }
+
+    else if ((origen === "Tonelada (T)") && (destino === "kilogramo (Kg)")) {
+      return setResult(number * 1000);
+    }
+
+    else if ((origen === "Tonelada (T)") && (destino === "gramo (g)")) {
+      return setResult(number * 1000000);
+    }
+
+    else if ((origen === "Tonelada (T)") && (destino === "miligramo (mg)")) {
+      return setResult(number * 1000000000);
+    }
+
+    else if ((origen === "kilogramo (Kg)") && (destino === "Tonelada (T)")) {
+      return setResult(number / 1000);
+    }
+
+    else if ((origen === "kilogramo (Kg)") && (destino === "gramo (g)")) {
+      return setResult(number * 1000);
+    }
+
+    else if ((origen === "kilogramo (Kg)") && (destino === "miligramo (mg)")) {
+      return setResult(number * 1000000);
+    }
+
+    else if ((origen === "gramo (g)") && (destino === "Tonelada (T)")) {
+      return setResult(number / 1000000);
+    }
+
+    else if ((origen === "gramo (g)") && (destino === "kilogramo (Kg)")) {
+      return setResult(number / 1000);
+    }
+
+    else if ((origen === "gramo (g)") && (destino === "miligramo (mg)")) {
+      return setResult(number * 1000);
+    }
+
+    else if ((origen === "miligramo (mg)") && (destino === "Tonelada (T)")) {
+      return setResult(number / 1000000000);
+    }
+
+    else if ((origen === "miligramo (mg)") && (destino === "kilogramo (Kg)")) {
+      return setResult(number / 1000000);
+    }
+
+    else if ((origen === "miligramo (mg)") && (destino === "gramo (g)")) {
+      return setResult(number / 1000);
     }
   }
 

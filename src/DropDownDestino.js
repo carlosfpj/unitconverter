@@ -7,26 +7,27 @@ function DropDownDestino({ unidades: { unidadesDropdown, setUnidadDestino} }) {
   function getUnitID(e,i) {
     e.preventDefault();
     setFocusedUnit(i)
-    console.log(focusedUnit);
   }
 
   return (
-    <ul>
-      {unidadesDropdown.map((item, i) => {
-        const classes = focusedUnit === i ? "border-l-8 border-blue-300 bg-blue-300" : "border-l-4 border-transparent hover:bg-gray-200 hover:border-l-4";
-        return (
-          <li className="w-full py-1">
-            <a
-              onClick={(e) => { getUnitID(e, i); setUnidadDestino(item); }}
-              href="/"
-              key={i}
-              value={item}
-              className={`inline-block w-full ${classes}`}
-            >{item}</a>
-          </li>
-        )
-      })}
-    </ul>
+    <div className="h-96 overflow-auto">
+      <ul>
+        {unidadesDropdown.map((item, i) => {
+          const classes = focusedUnit === i ? "border-l-8 border-blue-300 bg-blue-300" : "border-l-4 border-transparent hover:bg-gray-200 hover:border-l-4";
+          return (
+            <li className="w-full py-1">
+              <a
+                onClick={(e) => { getUnitID(e, i); setUnidadDestino(item); }}
+                href="/"
+                key={i}
+                value={item}
+                className={`inline-block w-full ${classes}`}
+              >{item}</a>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
   )
 }
 

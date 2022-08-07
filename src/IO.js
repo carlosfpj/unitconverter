@@ -7,7 +7,6 @@ function IO (props) {
 
   function handleInputOnChange(e) {
     const valueInput = e.target.value;
-    console.log("Está cambiando el input y su valor es " + valueInput);
     return setInput(valueInput);
   }
 

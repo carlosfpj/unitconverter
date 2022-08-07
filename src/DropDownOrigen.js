@@ -7,11 +7,10 @@ function DropDownOrigen({ unidades: { unidadesDropdown, setUnidadOrigen }}) {
   function getUnitID(e,i) {
     e.preventDefault();
     setFocusedUnit(i)
-    console.log(focusedUnit);
   }
 
   return(
-    <div className="h-96">
+    <div className="h-96 overflow-auto">
       <ul>
         {unidadesDropdown.map((item, i) => {
           const classes = focusedUnit === i ? "border-l-8 border-blue-300 bg-blue-300" : "border-l-4 border-transparent hover:bg-gray-200 hover:border-l-4";

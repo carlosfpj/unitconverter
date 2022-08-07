@@ -29,6 +29,10 @@ function Units ({opcion, number, result}) {
         setDropdownUnidades(['Tonelada (T)', 'kilogramo (Kg)', 'gramo (g)', 'miligramo (mg)']);
         break;
 
+      case 'tiempo':
+        setDropdownUnidades(['Año (A) (no Biciesto)', 'Día (D)', 'hora (h)', 'minuto (m)', 'segundo (s)']);
+        break;
+
       case 'temperatura':
         setDropdownUnidades(['Celcius (°C)', 'Fahrenheit (°F)', 'Kelvin (K)', 'El corazón de tu ex (X_X)']);
         break;
@@ -54,6 +58,10 @@ function Units ({opcion, number, result}) {
 
       case 'masa':
         getMassEcuations(unidadOrigen, unidadDestino);
+        break;
+
+      case 'tiempo':
+        getTimeEcuations(unidadOrigen, unidadDestino);
         break;
 
       case 'temperatura':
@@ -254,6 +262,92 @@ function Units ({opcion, number, result}) {
 
     else if ((origen === "miligramo (mg)") && (destino === "gramo (g)")) {
       return setResult(number / 1000);
+    }
+  }
+
+  function getTimeEcuations(origen, destino) {
+    if (origen === destino) {
+      return setResult(number);
+    }
+
+    else if ((origen === "Año (A) (no Biciesto)") && (destino === "Día (D)")) {
+      return setResult(number * 365);
+    }
+
+    else if ((origen === "Año (A) (no Biciesto)") && (destino === "hora (h)")) {
+      return setResult(number * 365 * 24);
+    }
+
+    else if ((origen === "Año (A) (no Biciesto)") && (destino === "minuto (m)")) {
+      return setResult(number * 365 * 24 * 60);
+    }
+
+    else if ((origen === "Año (A) (no Biciesto)") && (destino === "segundo (s)")) {
+      return setResult(number * 365 * 24 * 60 * 60);
+    }
+
+    else if ((origen === "Día (D)") && (destino === "Año (A) (no Biciesto)")) {
+      return setResult(number / 365);
+    }
+
+    else if ((origen === "Día (D)") && (destino === "hora (h)")) {
+      return setResult(number * 24);
+    }
+
+    else if ((origen === "Día (D)") && (destino === "minuto (m)")) {
+      return setResult(number * 24 * 60);
+    }
+
+    else if ((origen === "Día (D)") && (destino === "segundo (s)")) {
+      return setResult(number * 24 * 60 * 60);
+    }
+
+    else if ((origen === "hora (h)") && (destino === "Año (A) (no Biciesto)")) {
+      return setResult(number / 24 / 365);
+    }
+
+    else if ((origen === "hora (h)") && (destino === "Día (D)")) {
+      return setResult(number / 24);
+    }
+
+    else if ((origen === "hora (h)") && (destino === "minuto (m)")) {
+      return setResult(number * 60);
+    }
+
+    else if ((origen === "hora (h)") && (destino === "segundo (s)")) {
+      return setResult(number * 60 * 60);
+    }
+
+    else if ((origen === "minuto (m)") && (destino === "Año (A) (no Biciesto)")) {
+      return setResult(number / 60 / 24 / 365);
+    }
+
+    else if ((origen === "minuto (m)") && (destino === "Día (D)")) {
+      return setResult(number / 60 / 24);
+    }
+
+    else if ((origen === "minuto (m)") && (destino === "hora (h)")) {
+      return setResult(number / 60);
+    }
+
+    else if ((origen === "minuto (m)") && (destino === "segundo (s)")) {
+      return setResult(number * 60);
+    }
+
+    else if ((origen === "segundo (s)") && (destino === "Año (A) (no Biciesto)")) {
+      return setResult(number / 60 / 60 / 24 / 365);
+    }
+
+    else if ((origen === "segundo (s)") && (destino === "Día (D)")) {
+      return setResult(number / 60 / 60 / 24);
+    }
+
+    else if ((origen === "segundo (s)") && (destino === "hora (h)")) {
+      return setResult(number / 60 / 60);
+    }
+
+    else if ((origen === "segundo (s)") && (destino === "minuto (m)")) {
+      return setResult(number / 60);
     }
   }
 

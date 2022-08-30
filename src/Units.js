@@ -15,7 +15,6 @@ function Units ({number, result}) {
     switch (opcion) {
 
       case 'longitud':
-        //console.log("se cargarán las unidades de longitud en cada dropdown")
         setDropdownUnidades(['Kilómetro (Km)', 'metro (m)', 'centímetro (cm)', 'milímetro (mm)', 'test', 'test', 'test', 'test', 'test', 'test']);
         break;
 

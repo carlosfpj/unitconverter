@@ -9,7 +9,9 @@ function Units ({number, result}) {
   const[unidadesDropdown, setDropdownUnidades] = useState(['Kilómetro (Km)', 'metro (m)', 'centímetro (cm)', 'milímetro (mm)']);
   const[unidadOrigen, setUnidadOrigen] = useState();
   const[unidadDestino, setUnidadDestino] = useState();
-  const opcion = useContext(sidebarOption);
+  const contexto = useContext(sidebarOption);
+  const opcion = contexto.unidad[0]
+
 
   function fetchUnits() {
     switch (opcion) {

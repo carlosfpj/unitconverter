@@ -1,14 +1,12 @@
 import React from "react";
 
-function Sidebar (props) {
-
-  const {opcion, setOpcion} = props.opcion;
-
+function Sidebar ({opcion: {opcion, setOpcion}}) {
 
   function handleClick(e) {
     e.preventDefault();
-    const opcion = e.target.getAttribute("name");
-    return (setOpcion(opcion))
+    const click = e.target.getAttribute("id");
+    // console.log("haz hecho click en " + click);
+    return(setOpcion({unidad: [click]}))
   }
 
   return (
@@ -21,7 +19,7 @@ function Sidebar (props) {
                 <path d="M1 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5v-1H2v-1h4v-1H4v-1h2v-1H2v-1h4V9H4V8h2V7H2V6h4V2h1v4h1V4h1v2h1V2h1v4h1V4h1v2h1V2h1v4h1V1a1 1 0 0 0-1-1H1z" />
               </svg>
             </i>
-            <a href='/#' name="longitud" onClick={handleClick}>Longitud</a>
+            <a href='/#' id="longitud" onClick={handleClick}>Longitud</a>
           </li>
           <li className="space-x-2">
             <i>
@@ -29,7 +27,7 @@ function Sidebar (props) {
                 <path d="M0 4.5A2.5 2.5 0 0 1 2.5 2h11A2.5 2.5 0 0 1 16 4.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 11.5v-7zM2.5 3A1.5 1.5 0 0 0 1 4.5v7A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 13.5 3h-11zm10.854 4.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708l3-3a.5.5 0 0 1 .708 0zm0 2.5a.5.5 0 0 1 0 .708l-.5.5a.5.5 0 0 1-.708-.708l.5-.5a.5.5 0 0 1 .708 0z" />
               </svg>
             </i>
-            <a href='/#' name="area" onClick={handleClick}>Área</a>
+            <a href='/#' id="area" onClick={handleClick}>Área</a>
           </li>
           <li className="space-x-2">
             <i>
@@ -37,7 +35,7 @@ function Sidebar (props) {
                 <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
               </svg>
             </i>
-            <a href='/#' name="volumen" onClick={handleClick}>Volumen</a>
+            <a href='/#' id="volumen" onClick={handleClick}>Volumen</a>
           </li>
           <li className="space-x-2">
             <i>
@@ -46,7 +44,7 @@ function Sidebar (props) {
                 <path fillRule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
               </svg>
             </i>
-            <a href='/#' name="masa" onClick={handleClick}>Masa</a>
+            <a href='/#' id="masa" onClick={handleClick}>Masa</a>
           </li>
           <li className="space-x-2">
             <i>
@@ -55,7 +53,7 @@ function Sidebar (props) {
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
               </svg>
             </i>
-            <a href='/#' name="tiempo" onClick={handleClick}>Tiempo</a>
+            <a href='/#' id="tiempo" onClick={handleClick}>Tiempo</a>
           </li>
           <li className="space-x-2">
             <i>
@@ -64,7 +62,7 @@ function Sidebar (props) {
                 <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z" />
               </svg>
             </i>
-            <a href='/#' name="temperatura" onClick={handleClick}>Temperatura</a>
+            <a href='/#' id="temperatura" onClick={handleClick}>Temperatura</a>
           </li>
           </ul>
       </div>

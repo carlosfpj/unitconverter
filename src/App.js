@@ -6,8 +6,9 @@ import './index.css';
 
 function App() {
 
-  const [opcion, setOpcion] = useState('longitud');
-
+  const [opcion, setOpcion] = useState({unidad: ['longitud']});
+  // console.log("el tipo de opcion es: " + typeof(opcion) + " y su valor es:" + opcion);
+  // console.log(opcion);
 
   return (
     <div className="App">

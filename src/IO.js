@@ -11,7 +11,6 @@ function IO (props) {
   }
 
   return (
-    <React.Fragment>
       <div className="flex justify-between gap-2.5 mb-8">
         <div className="flex flex-col w-1/2">
           <label className="mb-3">Medida</label>
@@ -22,7 +21,6 @@ function IO (props) {
           <label placeholder="0" className="border-2 border-zinc-500">{result}</label>
         </div>
       </div>
-    </React.Fragment>
   )
 }
 

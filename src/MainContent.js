@@ -12,7 +12,7 @@ function MainContent() {
         <IO input={{input ,setInput}} result={result} ></IO>
         <Units number={input} result={{result, setResult}} ></Units>
         <Info></Info>
-      </div>
+    </div>
   )
 }
 
